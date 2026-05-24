@@ -5,12 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.http.ResponseEntity;
+
 import com.uvadaran.e_commerce.entity.Product;
 import com.uvadaran.e_commerce.service.ProductService;
 
 @RestController
 @RequestMapping("/products")
-@CrossOrigin("*")
 public class ProductController {
 
     @Autowired
@@ -20,6 +21,24 @@ public class ProductController {
     public Product addProduct(@RequestBody Product product) {
 
         return productService.addProduct(product);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
+
+        productService.deleteProduct(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PatchMapping("/{id}/reduce-stock")
+    public ResponseEntity<Product> reduceStock(@PathVariable Long id) {
+
+        try {
+            Product updated = productService.reduceStock(id);
+            return ResponseEntity.ok(updated);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @GetMapping

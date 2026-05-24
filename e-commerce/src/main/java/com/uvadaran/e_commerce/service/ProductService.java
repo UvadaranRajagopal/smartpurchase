@@ -23,4 +23,22 @@ public class ProductService {
 
         return productRepository.findAll();
     }
+
+    public void deleteProduct(Long id) {
+
+        productRepository.deleteById(id);
+    }
+
+    public Product reduceStock(Long id) {
+
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+
+        if (product.getQuantity() <= 0) {
+            throw new RuntimeException("Out of stock");
+        }
+
+        product.setQuantity(product.getQuantity() - 1);
+        return productRepository.save(product);
+    }
 }
