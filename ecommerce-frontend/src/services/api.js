@@ -6,15 +6,21 @@ const API = axios.create({
 
 API.interceptors.request.use(
   (config) => {
-    const token =
-      localStorage.getItem("token");
-
-    if (token) {
-      config.headers.Authorization =
-        `Bearer ${token}`;
-    }
-
+    const token = localStorage.getItem("token");
+    if (token) config.headers.Authorization = `Bearer ${token}`;
     return config;
+  }
+);
+
+API.interceptors.response.use(
+  (res) => res,
+  (err) => {
+    if (err.response?.status === 401 || err.response?.status === 403) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("role");
+      window.location.href = "/";
+    }
+    return Promise.reject(err);
   }
 );
 

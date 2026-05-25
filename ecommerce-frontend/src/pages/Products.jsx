@@ -7,6 +7,7 @@ export default function Products() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [loading, setLoading]   = useState(true);
+  const isAdmin = localStorage.getItem("role") === "ADMIN";
 
   useEffect(() => {
     if (!localStorage.getItem("token")) { navigate("/"); return; }
@@ -80,7 +81,7 @@ export default function Products() {
             </div>
             <div style={{ display: "flex", gap: "10px" }}>
               <button className="btn btn-outline" onClick={() => navigate("/cart")}>🛒 Cart</button>
-              <button className="btn btn-primary" onClick={() => navigate("/add-product")}>+ Add Product</button>
+              {isAdmin && <button className="btn btn-primary" onClick={() => navigate("/add-product")}>+ Add Product</button>}
             </div>
           </div>
 
@@ -115,13 +116,15 @@ export default function Products() {
                       >
                         {product.quantity <= 0 ? "Out of Stock" : "Add to Cart"}
                       </button>
-                      <button
-                        className="btn btn-outline"
-                        style={{ color: "#f87171", borderColor: "#f87171" }}
-                        onClick={() => deleteProduct(product.id)}
-                      >
-                        🗑
-                      </button>
+                      {isAdmin && (
+                        <button
+                          className="btn btn-outline"
+                          style={{ color: "#f87171", borderColor: "#f87171" }}
+                          onClick={() => deleteProduct(product.id)}
+                        >
+                          🗑
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

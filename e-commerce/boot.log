@@ -1,0 +1,92 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.uvadaran:e-commerce >-----------------------
+[INFO] Building e-commerce 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.0.6:run (default-cli) > test-compile @ e-commerce >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ e-commerce ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ e-commerce ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ e-commerce ---
+[INFO] skip non existing resourceDirectory c:\Users\Uvadharan\OneDrive\Desktop\SmartPurchase\e-commerce\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ e-commerce ---
+[INFO] Recompiling the module because of added or removed source files.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] <<< spring-boot:4.0.6:run (default-cli) < test-compile @ e-commerce <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.0.6:run (default-cli) @ e-commerce ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.6)
+
+2026-05-25T10:23:42.896+05:30  INFO 16700 --- [e-commerce] [           main] c.u.e_commerce.ECommerceApplication      : Starting ECommerceApplication using Java 21.0.11 with PID 16700 (C:\Users\Uvadharan\OneDrive\Desktop\SmartPurchase\e-commerce\target\classes started by Uvadharan in c:\Users\Uvadharan\OneDrive\Desktop\SmartPurchase\e-commerce)
+2026-05-25T10:23:42.901+05:30  INFO 16700 --- [e-commerce] [           main] c.u.e_commerce.ECommerceApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-05-25T10:23:43.430+05:30  INFO 16700 --- [e-commerce] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-25T10:23:43.475+05:30  INFO 16700 --- [e-commerce] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 2 JPA repository interfaces.
+2026-05-25T10:23:43.916+05:30  INFO 16700 --- [e-commerce] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-05-25T10:23:43.928+05:30  INFO 16700 --- [e-commerce] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-25T10:23:43.929+05:30  INFO 16700 --- [e-commerce] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-25T10:23:43.968+05:30  INFO 16700 --- [e-commerce] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1026 ms
+2026-05-25T10:23:44.134+05:30  INFO 16700 --- [e-commerce] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-25T10:23:44.179+05:30  INFO 16700 --- [e-commerce] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-25T10:23:44.583+05:30  INFO 16700 --- [e-commerce] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-25T10:23:44.607+05:30  INFO 16700 --- [e-commerce] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-25T10:23:44.906+05:30  INFO 16700 --- [e-commerce] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4805069b
+2026-05-25T10:23:44.906+05:30  INFO 16700 --- [e-commerce] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-25T10:23:44.989+05:30  INFO 16700 --- [e-commerce] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/ecommerce_db]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.43
+	Default catalog/schema: ecommerce_db/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-25T10:23:45.710+05:30  INFO 16700 --- [e-commerce] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-25T10:23:45.756+05:30  INFO 16700 --- [e-commerce] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-25T10:23:45.824+05:30  INFO 16700 --- [e-commerce] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-25T10:23:45.975+05:30  WARN 16700 --- [e-commerce] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-25T10:23:46.053+05:30  WARN 16700 --- [e-commerce] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: b6adefaa-87e7-4de4-a140-2285817b1ff5
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-25T10:23:46.058+05:30  INFO 16700 --- [e-commerce] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-25T10:23:46.413+05:30  INFO 16700 --- [e-commerce] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-05-25T10:23:46.416+05:30  INFO 16700 --- [e-commerce] [           main] c.u.e_commerce.ECommerceApplication      : Started ECommerceApplication in 3.927 seconds (process running for 4.261)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  03:36 min
+[INFO] Finished at: 2026-05-25T10:27:16+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.0.6:run (default-cli) on project e-commerce: Process terminated with exit code: 1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+
+c:\Users\Uvadharan\OneDrive\Desktop\SmartPurchase\e-commerce>

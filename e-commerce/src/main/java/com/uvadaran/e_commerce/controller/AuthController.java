@@ -31,15 +31,28 @@ public class AuthController {
     @PostMapping("/register")
     public User register(@RequestBody RegisterRequest request) {
 
+        Optional<User> existingUser =
+                userRepository.findByUsername(
+                        request.getUsername()
+                );
+
+        if(existingUser.isPresent()) {
+
+            throw new RuntimeException("Username already exists");
+        }
+
         User user = new User();
 
         user.setUsername(request.getUsername());
 
         user.setPassword(
-                passwordEncoder.encode(request.getPassword())
+                passwordEncoder.encode(
+                        request.getPassword()
+                )
         );
 
-        user.setRole(request.getRole());
+        // Default role
+        user.setRole("USER");
 
         return userRepository.save(user);
     }
@@ -73,14 +86,19 @@ public class AuthController {
         }
 
         String token =
-                jwtUtil.generateToken(
-                        user.getUsername()
-                );
+        jwtUtil.generateToken(
+                user.getUsername(),
+                user.getRole()
+        );
 
         Map<String, String> response =
                 new HashMap<>();
 
         response.put("token", token);
+
+        response.put("role", user.getRole());
+
+        response.put("username", user.getUsername());
 
         return response;
     }

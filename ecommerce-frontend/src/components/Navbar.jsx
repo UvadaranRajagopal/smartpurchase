@@ -3,9 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = ({ cartCount = 0 }) => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  const isAdmin = localStorage.getItem("role") === "ADMIN";
 
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("role");
     navigate("/");
   };
 
@@ -19,7 +21,7 @@ const Navbar = ({ cartCount = 0 }) => {
         <div className="nav-links">
           <Link to="/home">Home</Link>
           <Link to="/products">Products</Link>
-          <Link to="/add-product">Add Product</Link>
+          {isAdmin && <Link to="/add-product">Add Product</Link>}
 
           <Link to="/cart" className="cart-link">
             🛒

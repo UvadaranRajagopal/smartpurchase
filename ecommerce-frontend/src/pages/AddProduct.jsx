@@ -16,10 +16,10 @@ export default function AddProduct() {
 
   useEffect(() => {
     mountedRef.current = true;
-    if (!localStorage.getItem("token")) {
-      navigate("/");
-      setAuth(false);
-    }
+    const token = localStorage.getItem("token");
+    const role  = localStorage.getItem("role");
+    if (!token) { navigate("/"); setAuth(false); }
+    else if (role !== "ADMIN") { navigate("/products"); setAuth(false); }
     return () => { mountedRef.current = false; };
   }, []);
 
